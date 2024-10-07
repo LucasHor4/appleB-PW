@@ -1,5 +1,9 @@
 const imagemVisualizacao = document.getElementById('imagem-visualizacao')
 const titulo = document.getElementById('titulo-produto')
+const nomeCor = document.getElementById('nome-cor-selecionada')
+const miniaturaImg0 = document.getElementById('0-imagem-miniatura')
+const miniaturaImg1 = document.getElementById('1-imagem-miniatura')
+const miniaturaImg2 = document.getElementById('2-imagem-miniatura')
 
 const verdeCipreste = {
     nome: 'verde-cipreste',//nome da cor
@@ -35,7 +39,7 @@ function trocarImagem(){
     const idOpcaoSelecionada = document.querySelector('[name="opcao-imagem"]:checked').id
     //função chartAt() retorna o caractere especificado a partir de uma sting => 0-imagem => charAt(0) => 0
     imagemSelecionada = idOpcaoSelecionada.charAt(0)
-    imagemVisualizacao.src = `./imagens/opcoes-cores/imagens-azul-inverno/imagem-${imagemSelecionada}.jpeg`
+    imagemVisualizacao.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].pasta}/imagem-${imagemSelecionada}.jpeg`
 }
 
 function trocarTamanho(){
@@ -60,7 +64,11 @@ function trocarCor(){
     titulo.innerText = `Pulseira loop esportiva ${opcoesCores[corSelecionada].nome} para caixa de ${opcoesTamanho[tamanhoSelecionado]}`
     
     //trocar nome da cor
+    nomeCor.innerText = `Cor - ${opcoesCores[corSelecionada].nome}`
     //trocar as imagens com as miniaturas exibidas
+    miniaturaImg0.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].pasta}/imagem-0.jpeg`
+    miniaturaImg1.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].pasta}/imagem-1.jpeg`
+    miniaturaImg2.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].pasta}/imagem-2.jpeg`
     //trocar imagem de visualização
-    
+    imagemVisualizacao.src = `./imagens/opcoes-cores/${opcoesCores[corSelecionada].pasta}/imagem-${imagemSelecionada}.jpeg` 
 }
